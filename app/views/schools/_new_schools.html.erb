@@ -1,0 +1,84 @@
+
+            <!-- === BEGIN CONTENT === -->
+            <div id="content">
+                <div class="container background-white">
+                    <div class="row margin-vert-30">
+                        <!-- Main Column -->
+                        <div class="col-md-9">
+                            <!-- Blog Post -->
+                          <% @schools.each do |school| %>
+                            <% if school.reviews.blank? %>
+                             <% average_review2 = 0 %>
+                           <% else %>
+                             <% average_review2 = school.reviews.average(:rating).round(2) %>
+                           <% end %>
+                            <div class="blog-post padding-bottom-20">
+                                <!-- Blog Item Header -->
+                                <div class="blog-item-header">
+                                    <!-- Title -->
+                                    <h2>
+                                        <%= link_to school.name %>
+                                    </h2>
+                                    <div class="clearfix"></div>
+                                    <!-- End Title -->
+
+                                    <div class="blog-post-date">
+                                        <div class="average-review-rating" data-score=<%= average_review2 %>></div>
+                                    </div>
+                                    <!-- End Date -->
+
+                                </div>
+                                <!-- End Blog Item Header -->
+                                <!-- Blog Item Details -->
+                                <div class="blog-post-details">
+                                    <!-- Author Name -->
+                                    <div class="blog-post-details-item blog-post-details-item-left">
+                                        <i class="fa fa-user color-gray-light"></i>
+                                        <%= school.state %>
+                                    </div>
+                                    <!-- End Author Name -->
+
+                                    <!-- # of Comments -->
+                                    <div class="blog-post-details-item blog-post-details-item-left blog-post-details-item-last">
+                                        <a href="">
+                                            <i class="fa fa-comments color-gray-light"></i>
+                                            <%= school.reviews.count%> reviews
+                                        </a>
+                                    </div>
+                                    <!-- End # of Comments -->
+                                </div>
+                                <!-- End Blog Item Details -->
+                                <!-- Blog Item Body -->
+                                <div class="blog">
+                                    <div class="clearfix"></div>
+                                    <div class="blog-post-body row margin-top-15">
+                                        <div class="col-md-5">
+                                          <% if school.image_url.nil? %>
+                                            <%= image_tag("school_children.jpg", class: 'margin-bottom-20') %>
+                                          <%else%>
+                                            <%= image_tag(school.image_url, class: 'margin-bottom-20') %>
+                                          <% end %>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <p><%= school.description %></p>
+                                            <!-- Read More -->
+                                            <a href="#" class="btn btn-primary">
+                                                <%= link_to "Read More", school_path(school) %>
+                                                <i class="icon-chevron-right readmore-icon"></i>
+                                            </a>
+                                            <!-- End Read More -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End Blog Item Body -->
+                            </div>
+                            <!-- End Blog Item -->
+                            <% end %>
+
+
+                        </div>
+                        <!-- End Main Column -->
+                    </div>
+                </div>
+            </div>
+            <!-- === END CONTENT === -->

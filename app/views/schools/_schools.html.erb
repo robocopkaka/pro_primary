@@ -1,0 +1,38 @@
+<div class="row">
+   
+   <% @schools.each do |school| %>
+               <% if school.reviews.blank? %>
+                <% average_review2 = 0 %>
+              <% else %>
+                <% average_review2 = school.reviews.average(:rating).round(2) %>
+              <% end %>
+       <div class="col-sm-6 col-md-4">
+       
+      <div class="panel panel-default">
+        <%= link_to school_path(school) do %>
+           <div class="panel-heading"> <h4><%= school.name.titleize %></h4></div>
+        <% end %>
+        <div class="panel-body">
+            <% if school.image_url.nil? %>
+              <%= image_tag("school_children.jpg", size:"150x150", class: 'img-circle center-block') %>
+            <% else %>
+              <%= image_tag(school.image_url(:thumb), class: 'img-circle center-block') %> 
+            <% end %>
+              
+              <div class="clearfix"></div>
+              <hr>
+              <p>Some Lorem shit, but should hold a brief description
+              </p>
+              <h5><%= link_to "View More details", school_path(school) %></h5>
+              
+            </div>
+            <div class="panel-footer">
+              <div class="average-review-rating" data-score=<%= average_review2 %>></div>
+            </div>
+         </div> 
+    </div>
+   <% end  %>
+  <%= will_paginate @schools %>
+    </div>
+    
+

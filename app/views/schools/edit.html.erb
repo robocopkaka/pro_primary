@@ -1,0 +1,48 @@
+<div class="col-md-6 col-md-offset-3">
+	<div class="new-book-form">		<h2>Edit School</h2>
+		<%= form_for (@school), html: {multipart: true} do |f| %>
+			<%=f.label :name %>
+			<%= f.text_field :name, class: 'form-control'  %>
+
+			<%= f.label :address %>
+			<%= f.text_field :address, class:'form-control' %>
+
+			<%= f.label :fees %>
+			<%= f.text_field :fees, class:'form-control' %>
+
+			<%= f.label :state %>
+			<%= f.text_field :state, class:'form-control' %>
+
+			<fieldset label = "School Fees">
+				<%= f.label :registration_fees %>
+				<%= f.number_field :reg_fees, class: 'form-control' %>
+
+				<%= f.label :primary_one %>
+				<%= f.number_field :primary_one, class: 'form-control' %>
+
+				<%= f.label :primary_two %>
+				<%= f.number_field :primary_two, class: 'form-control' %>
+
+				<%= f.label :primary_three %>
+				<%= f.number_field :primary_three, class: 'form-control'  %>
+
+				<%= f.label :primary_four %>
+				<%= f.number_field :primary_four, class: 'form-control' %>
+
+				<%= f.label :primary_five %>
+				<%= f.number_field :primary_five, class: 'form-control' %>
+
+				<%= f.label :primary_six %>
+				<%= f.number_field :primary_six, class: 'form-control' %>
+
+				<%= f.label :common_entrance_fees %>
+				<%= f.number_field :exam_fees, class: 'form-control' %>
+			</fieldset>
+
+			<%= f.file_field :image, value: "School Image", accept: 'image/jpeg,image/gif,image/png' %>
+			<%= f.hidden_field :image_cache %>
+
+			<%= f.submit "Save School", class:'btn-custom2' %>
+<% end %>
+</div>
+</div>

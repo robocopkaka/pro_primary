@@ -1,0 +1,30 @@
+ <div class="col-md-12"><h2>Hey! Looks we've got some schools for you :)</h2></div>
+<%= render 'schools/new_schools' %> 
+
+<% unless @lat_lng %>
+  <script>
+    getGeoLocation();
+  </script>
+<% end %>
+
+  <script>
+
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    },
+    path: '/assets'
+  });
+
+</script>
+
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    path: '/assets/',
+    score: function(){
+      return $(this).attr('data-score')
+    }
+  });
+</script>
