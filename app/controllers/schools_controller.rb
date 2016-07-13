@@ -1,7 +1,7 @@
 require 'will_paginate/array'
 require 'active_support/core_ext/enumerable'
 class SchoolsController < ApplicationController
-  before_action :authenticate_user, only: [:new, :edit]
+  before_action :authenticate_user, only: [:edit]
   #before_action :find_coordinates, only: :index
   def index
     #code to produce 9 random records pulled from http://blog.endpoint.com/2016/05/randomized-queries-in-ruby-on-rails.html?m=1

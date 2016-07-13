@@ -1,7 +1,7 @@
 
 
 
-<!-- 
+<!--
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
@@ -75,19 +75,17 @@
 															<%= link_to "Home", root_url %>
 													</li>
 													<li>
-															<span class="fa-gears "><%= link_to "Add a School", new_school_path %></span>
+															<%= link_to "Add a School", new_school_path %>
 													</li>
 													<li>
-															<span class="fa-copy "><%= link_to "Top Ranked Schools", ranking_path%></span>
+															<%= link_to "Top Ranked Schools", ranking_path%>
 													</li>
-													<li>
-															<span class="fa-th "></span>
-													</li>
+
 													<li>
 														<% if !user_signed_in? %>
-															<span class="fa-font "><%=link_to "Login", new_user_session_path %></span>
+															<%=link_to "Login", new_user_session_path %>
 														<% else %>
-															<span class="fa-font "><%=link_to "Login", destroy_user_session_path %></span>
+															<%=link_to "Login", destroy_user_session_path %>
 														<% end %>
 													</li>
 											</ul>

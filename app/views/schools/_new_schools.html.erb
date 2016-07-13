@@ -17,7 +17,7 @@
                                 <div class="blog-item-header">
                                     <!-- Title -->
                                     <h2>
-                                        <%= link_to school.name %>
+                                        <%= link_to school.name, school_path(school) %>
                                     </h2>
                                     <div class="clearfix"></div>
                                     <!-- End Title -->
@@ -62,10 +62,10 @@
                                         <div class="col-md-7">
                                             <p><%= school.description %></p>
                                             <!-- Read More -->
-                                            <a href="#" class="btn btn-primary">
-                                                <%= link_to "Read More", school_path(school) %>
+                                            <%= link_to school_path(school), class: 'btn btn-primary' do %>
+                                                Read More
                                                 <i class="icon-chevron-right readmore-icon"></i>
-                                            </a>
+                                            <% end %>
                                             <!-- End Read More -->
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                             <!-- End Blog Item -->
                             <% end %>
 
-
+                        <%= will_paginate @schools %>
                         </div>
                         <!-- End Main Column -->
                     </div>
