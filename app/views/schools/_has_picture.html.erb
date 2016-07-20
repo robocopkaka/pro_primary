@@ -1,78 +1,89 @@
+<div id="content">
+    <div class="container background-white">
+        <div class="row margin-vert-30">
+            <div class="col-md-12">
+                <h2><%= @school.name %></h2>
+                <div class="row">
+                    <div class="col-md-6 animate fadeIn">
+                        <%= image_tag(school.image_url, alt: 'Sorry, it didn\'t load', class: 'margin-top-10') %>
+                        <ul class="list-inline about-me-icons margin-vert-20">
+                            <li>
+                                <a href="#">
+                                    <i class="fa-lg fa-border fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-lg fa-border fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-lg fa-border fa-dribbble"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <i class="fa-lg fa-border fa-google-plus"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 margin-bottom-10 animate fadeInRight">
+                        <h3 class="padding-top-10 pull-left"> <%= @school.address %>
+                            <small>, <%= @school.state %></small>
+                        </h3>
+                        <div class="clearfix"></div>
 
+                        <p> <%= @school.description %> </p>
+                    </div>
+                </div>
+                <hr>
 
-  <div class="panel panel-default bootcards-media">
-  <div class="panel-heading">
-    <h3 class="panel-title" align="center"><%= @school.name %></h3>
-  </div>
-  <div class="panel-body">
-    
-  </div>
-  <%= image_tag(@school.image_url, :size => "400x300", class:'img-responsive center-block') %>
-  <div class="panel-footer">
-      <div>
-        <h2 class="avg-rating">Average</h2>
-        <div class="average-review-rating" data-score=<%= @average_review %>></div>
-        <span class="number-of-reviews">Based on <%= @school.reviews.count %> reviews</span>
-      </div>
-  </div>
-</div>
-  
-   
-
-        <div class="col-md-6">
-          <div class="panel panel-default bootcards-media">
-            <div class="panel-heading">
-              <h3 class="panel-title" align="center">Don't know where the address is? We've got you covered</h3>
+                <hr class="margin-bottom-40">
+                <div class="row">
+                    <div class="col-md-6 animate fadeIn">
+                          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@school.latitude}%2C#{@school.longitude}" %>
+                    </div>
+                    <div class="col-md-6">
+                        <!-- Accordion -->
+                        <div id="accordion" class="panel22-group">
+                            <div class="panel2 panel2-default">
+                                <div class="panel2-heading">
+                                    <h4 class="panel2-title">
+                                        <a class="accordion-toggle" href="#collapse-One" data-parent="#accordion" data-toggle="collapse">
+                                          Estimate fees
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-One" class="accordion-body collapse in">
+                                    <div class="panel2-body">
+                                          Hey! Want to find out how much it would cost to send a kid to school, click <%= link_to "here", calculate_total_fees_path(:id => @school.id) %>.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Accordion -->
+                    </div>
+                </div>
             </div>
-            <div class="panel-body">
-    
-            </div>
-            <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@school.latitude}%2C#{@school.longitude}" %>
-
-            <div class="panel-footer">
-              <div align="center" font-weight="bold" font-size="16px">
-                <%= @school.address.titleize %>
-
-                <% if user_signed_in? %>
-                  <%= link_to "Edit", edit_school_path %>
-                <% end %>
-                
-              </div>         
-            </div>
-      
           </div>
-       
-        </div>
 
-        <div class="col-md-6">
-          <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-              <h3 class="panel-title pull-left">Reviews</h3>
-            </div>
-            <div class="panel-body">
-              <%= render @school.reviews %>
-              <div class="reviews">
-                <div class="links btn-group">
-                  <%= link_to "Add Review", new_school_review_path(@school), class:"btn btn-custom padding-top:10px"%>
+
+              <div class="blog-item-footer">
+                <div class="blog-recent-comments panel2 panel2-default margin-bottom-30">
+                    <div class="panel2-heading">
+                        <h3>Comments</h3>
+                    </div>
+                    <ul class="list-group">
+                        <%= render @school.reviews %>
+                    </ul>
+                    <div class="links btn2-group">
+                      <%= link_to "Add Review", new_school_review_path(@school), class:"btn2 btn2-custom padding-top:10px"%>
+                    </div>
                 </div>
               </div>
-          </div>
-        </div>
 
-        <div class="col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading clearfix">
-              <div class="panel-title pull-left">
-                Hey! Want to find out how much it would cost to send a kid to school, click <%= link_to "here", calculate_total_fees_path(:id => @school.id) %>.
-                
-              <!--   It's going to cost you <%= @current_fees %> to send your kid to this school -->
-                <%= render 'calculate_total_fees' %>
-                <div id="fees">
-                  
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="clearfix"></div>
+            </div> <!-- end of the guy that follows the content div -->
+  </div> <!-- end of content div -->
+<!-- === END CONTENT === -->

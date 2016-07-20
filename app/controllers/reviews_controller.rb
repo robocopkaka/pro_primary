@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 
 	def create
 		@review = Review.new(review_params)
-		@review.school_id = @school.id #helps save to the reviews table, since we aren't using .build I guess 
+		@review.school_id = @school.id #helps save to the reviews table, since we aren't using .build I guess
 		@review.user_id = current_user.id #helps save to the reviews table, since we aren't using .build I guess
 
 		if @review.save
@@ -53,6 +53,8 @@ class ReviewsController < ApplicationController
 
     def authenticate_user
    	 if !user_signed_in?
+			session[:user_return_to] = request.original_url
+			session[:school_id] = @school.id
       redirect_to new_user_session_url
      end
   	end

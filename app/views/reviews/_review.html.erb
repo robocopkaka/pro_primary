@@ -1,18 +1,47 @@
-<div class="reviews">
+<!-- <div class="reviews">
 	<div class="review-rating" data-score="<%= review.rating   %>">
-		
+
 	</div>
 	<p class="review-comment"> <%= review.comment %> </p>
 
-	<div class="links btn-group">
+	<div class="links btn2-group">
 		<% if user_signed_in? %>
 			<% if review.user_id == current_user.id %>
 
-				<%= link_to "Edit", edit_school_review_path(review.school, review), class: "btn btn-custom" %>
+				<%= link_to "Edit", edit_school_review_path(review.school, review), class: "btn2 btn2-custom" %>
 
-				<%= link_to "Delete", school_review_path(review.school, review), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-custom" %>
+				<%= link_to "Delete", school_review_path(review.school, review), method: :delete, data: {confirm: "Are you sure?"}, class: "btn2 btn2-custom" %>
 
 			<% end %>
 		<% end %>
 	</div>
-</div>
+</div> -->
+
+
+<li class="list-group-item1">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="review-rating" data-score="<%= review.rating   %>"></div>
+          <p><%= review.comment %></p>
+          <div class="links btn2-group">
+        		<% if user_signed_in? %>
+        			<% if review.user_id == current_user.id %>
+
+        				<%= link_to "Edit", edit_school_review_path(review.school, review), class: "btn2 btn2-custom" %>
+
+        				<%= link_to "Delete", school_review_path(review.school, review), method: :delete, data: {confirm: "Are you sure?"}, class: "btn2 btn2-custom" %>
+
+        			<% end %>
+        		<% end %>
+        	</div>
+          <span class="date">
+              <i class="fa fa-clock-o color-gray-light"></i>
+              <% if review.created_at > Time.now.beginning_of_day %>
+                <%="#{time_ago_in_words(review.created_at)} ago"%>
+              <% else %>
+                <%= review.created_at.strftime("%b %d, %Y") %>
+              <% end %>
+            </span>
+      </div>
+  </div>
+</li>
