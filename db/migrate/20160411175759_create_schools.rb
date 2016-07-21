@@ -11,4 +11,7 @@ class CreateSchools < ActiveRecord::Migration
       t.timestamps null: false
     end
   end
+  def up
+    change_column_default :schools, :reg_fees, 0
+  end
 end

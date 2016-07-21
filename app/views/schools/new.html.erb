@@ -1,22 +1,56 @@
-<div class="col-md-6 col-md-offset-3">
-	<div class="new-book-form">
-		<%= form_for (@school), html:{multipart: true} do |f| %>
-			<%=f.label :name %>
-			<%= f.text_field :name, class: 'form-control'  %>
+<div id="content">
+    <div class="container background-white">
+        <div class="container">
+            <div class="row margin-vert-30">
+                <!-- Login Box -->
+                <div class="col-md-6 col-md-offset-3 col-sm-offset-3">
 
-			<%= f.label :address %>
-			<%= f.text_field :address, class:'form-control' %>
+		<%= form_for (@school), html:{multipart: true, class: 'login-page'} do |f| %>
+		<div class="login-header margin-bottom-30">
+		    <h2>Add a new school. Help the cause</h2>
+		</div>
 
-			<%= f.label :fees %>
-			<%= f.text_field :fees, class:'form-control' %>
+			<div class="input-group margin-bottom-20">
+        <span class="input-group-addon">
+            <i class="fa fa-user"></i>
+        </span>
+				<!-- <%=f.label :name %> -->
+				<%= f.text_field :name, class: 'form-control', placeholder: 'Name'  %>
+			</div>
 
-			<%= f.label :state %>
-			<%= f.text_field :state, class:'form-control' %>
+			<div class="input-group margin-bottom-20">
+        <span class="input-group-addon">
+            <i class="fa fa-street-view"></i>
+        </span>
+				<%= f.text_field :address, class:'form-control', placeholder:'Address' %>
+			</div>
 
-			<%= f.file_field :image, value: "School Image", accept: 'image/jpeg,image/gif,image/png', id: 'book_book_img' %>
-			<%= f.hidden_field :image_cache %>
+			<div class="input-group margin-bottom-20">
+        <span class="input-group-addon">
+            <i class="fa fa-location-arrow"></i>
+        </span>
+				<%= f.text_field :state, class:'form-control', placeholder:'State' %>
+			</div>
 
-			<%= f.submit "Save School", class:'btn-custom2' %>
+      <div class="input-group margin-bottom-20">
+        <span class="input-group-addon">
+            <i class="fa fa-book"></i>
+        </span>
+				<%= f.text_field :description, class:'form-control', placeholder:'Description' %>
+			</div>
+
+			<div class="input-group margin-bottom-20">
+				<%= f.file_field :image, value: "School Image", accept: 'image/jpeg,image/gif,image/png', id: 'book_book_img' %>
+				<%= f.hidden_field :image_cache %>
+			</div>
+      <div class="row">
+  			<div class="col-md-12">
+  				<%= f.submit "Save School", class:'btn2 btn2-primary pull-right' %>
+  			</div>
+      </div>
 		<% end %>
 	</div>
+</div>
+</div>
+</div>
 </div>

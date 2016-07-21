@@ -1,48 +1,93 @@
-<div class="col-md-6 col-md-offset-3">
-	<div class="new-book-form">		<h2>Edit School</h2>
-		<%= form_for (@school), html: {multipart: true} do |f| %>
-			<%=f.label :name %>
-			<%= f.text_field :name, class: 'form-control'  %>
+<div id="content">
+    <div class="container background-white">
+        <div class="container">
+            <div class="row margin-vert-30">
+                <!-- Login Box -->
+                <div class="col-md-6 col-md-offset-3 col-sm-offset-3">
 
-			<%= f.label :address %>
-			<%= f.text_field :address, class:'form-control' %>
+		<%= form_for (@school), html: {multipart: true, class: 'login-page'} do |f| %>
+			<div class="login-header margin-bottom-30">
+					<h2>Edit <%= @school.name %>'s details</h2>
+			</div>
+			<div class="input-group margin-bottom-20">
+				<span class="input-group-addon">
+		        <i class="fa fa-user"></i>
+		    </span>
+				<%= f.text_field :name, class: 'form-control', placeholder: 'Name'  %>
+			</div>
 
-			<%= f.label :fees %>
-			<%= f.text_field :fees, class:'form-control' %>
+			<div class="input-group margin-bottom-20">
+				<span class="input-group-addon">
+		        <i class="fa fa-user"></i>
+		    </span>
+				<%= f.text_field :address, class:'form-control', placeholder: 'Address' %>
+			</div>
 
-			<%= f.label :state %>
-			<%= f.text_field :state, class:'form-control' %>
+			<div class="input-group margin-bottom-20">
+				<span class="input-group-addon">
+		        <i class="fa fa-user"></i>
+		    </span>
+				<%= f.text_field :state, class:'form-control', placeholder: 'State' %>
+			</div>
+
+			<div class="input-group margin-bottom-20">
+				<span class="input-group-addon">
+		        <i class="fa fa-user"></i>
+		    </span>
+				<%= f.text_field :description, class:'form-control', placeholder: 'Description' %>
+			</div>
 
 			<fieldset label = "School Fees">
-				<%= f.label :registration_fees %>
-				<%= f.number_field :reg_fees, class: 'form-control' %>
+				<div class="row">
+					<div class="col-md-4">
+						<%= f.number_field :reg_fees, class: 'form-control', placeholder: 'Registration fees' %>
+					</div>
 
-				<%= f.label :primary_one %>
-				<%= f.number_field :primary_one, class: 'form-control' %>
+					<div class="col-md-4">
+						<%= f.number_field :primary_one, class: 'form-control', placeholder: 'Primary One' %>
+					</div>
 
-				<%= f.label :primary_two %>
-				<%= f.number_field :primary_two, class: 'form-control' %>
+					<div class="col-md-4">
+						<%= f.number_field :primary_two, class: 'form-control', placeholder: 'Primary Two' %>
+					</div>
+				</div> <!-- End of first row -->
+				<hr>
 
-				<%= f.label :primary_three %>
-				<%= f.number_field :primary_three, class: 'form-control'  %>
+				<div class="row">
+					<div class="col-md-4">
+						<%= f.number_field :primary_three, class: 'form-control', placeholder: 'Primary Three'  %>
+					</div>
 
-				<%= f.label :primary_four %>
-				<%= f.number_field :primary_four, class: 'form-control' %>
+					<div class="col-md-4">
+						<%= f.number_field :primary_four, class: 'form-control', placeholder: 'Primary Four' %>
+					</div>
 
-				<%= f.label :primary_five %>
-				<%= f.number_field :primary_five, class: 'form-control' %>
+					<div class="col-md-4">
+						<%= f.number_field :primary_five, class: 'form-control', placeholder: 'Primary Five' %>
+					</div>
+				</div> <!-- End of second row -->
 
-				<%= f.label :primary_six %>
-				<%= f.number_field :primary_six, class: 'form-control' %>
+				<hr>
 
-				<%= f.label :common_entrance_fees %>
-				<%= f.number_field :exam_fees, class: 'form-control' %>
+				<div class="row">
+					<div class="col-md-4">
+						<%= f.number_field :primary_six, class: 'form-control', placeholder: 'Primary Six' %>
+					</div>
+					<div class="col-md-4">
+						<%= f.number_field :exam_fees, class: 'form-control', placeholder: 'Exam Fees' %>
+					</div>
+				</div> <!-- End of third row -->
+				<hr>
 			</fieldset>
 
 			<%= f.file_field :image, value: "School Image", accept: 'image/jpeg,image/gif,image/png' %>
 			<%= f.hidden_field :image_cache %>
-
-			<%= f.submit "Save School", class:'btn-custom2' %>
+			<div class="row">
+				<%= f.submit "Save School", class:'btn2 btn2-primary pull-right' %>
+			</div>
 <% end %>
+</div>
+</div>
+</div>
 </div>
 </div>

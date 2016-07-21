@@ -108,11 +108,12 @@ class SchoolsController < ApplicationController
 
   private
   def school_params
-    params.require(:school).permit(:name, :address, :fees, :reg_fees, :state, :image, :primary_one, :primary_two, :primary_three, :primary_four, :primary_five, :primary_six, :exam_fees)
+    params.require(:school).permit(:name, :address, :description, :fees, :reg_fees, :state, :image, :primary_one, :primary_two, :primary_three, :primary_four, :primary_five, :primary_six, :exam_fees)
   end
 
   def authenticate_user
     if !user_signed_in?
+      session[:user_return_to] = request.original_url
       redirect_to new_user_session_url
     end
   end

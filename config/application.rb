@@ -24,5 +24,6 @@ module Primary
     config.active_record.raise_in_transactional_callbacks = true
     config.assets.paths << Rails.root.join('bower_components')
     config.assets.precompile += %w(primary.css.scss primary.js primary/*)
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end

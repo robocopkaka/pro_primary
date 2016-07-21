@@ -6,6 +6,10 @@
                 <div class="row">
                     <div class="col-md-6 animate fadeIn">
                         <%= image_tag("school_children.jpg", alt: 'Sorry, it didn\'t load', class: 'margin-top-10') %>
+                        <div class="center-block">
+                          <div class="average-review-rating" data-score=<%= @average_review %>></div>
+                          <span class="number-of-reviews">Based on <%= @school.reviews.count %> reviews</span>
+                        </div>
                         <ul class="list-inline about-me-icons margin-vert-20">
                             <li>
                                 <a href="#">
@@ -28,6 +32,7 @@
                                 </a>
                             </li>
                         </ul>
+
                     </div>
                     <div class="col-md-6 margin-bottom-10 animate fadeInRight">
                         <h3 class="padding-top-10 pull-left"> <%= @school.address %>
@@ -59,6 +64,10 @@
                                 <div id="collapse-One" class="accordion-body collapse in">
                                     <div class="panel2-body">
                                           Hey! Want to find out how much it would cost to send a kid to school, click <%= link_to "here", calculate_total_fees_path(:id => @school.id) %>.
+                                          <%= render 'calculate_total_fees' %>
+                                          <div id="fees">
+
+                                          </div>
                                     </div>
                                 </div>
                             </div>
