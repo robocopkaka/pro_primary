@@ -45,7 +45,9 @@ gem 'ransack'
 
 #allows you set variables to pass to javascript
 gem 'gon'
-
+gem 'unicorn', group: :production
+gem 'pg', group: :production
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -70,11 +72,11 @@ group :development do
   gem 'rails_layout'
 end
 
-group :production do
-	gem 'unicorn'
-	gem 'pg'
-	gem 'rails_12factor'
-end
+# group :production do
+# 	gem 'unicorn'
+# 	gem 'pg'
+# 	gem 'rails_12factor'
+# end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

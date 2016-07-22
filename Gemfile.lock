@@ -344,9 +344,9 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mini_magick
-  pg (= 0.18.4)
+  pg
   rails (= 4.2.6)
-  rails_12factor (= 0.0.2)
+  rails_12factor
   rails_layout
   ransack
   sass-rails (~> 5.0)
