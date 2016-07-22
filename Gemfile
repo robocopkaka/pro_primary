@@ -46,6 +46,7 @@ gem 'ransack'
 #allows you set variables to pass to javascript
 gem 'gon'
 
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
